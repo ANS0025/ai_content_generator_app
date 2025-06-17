@@ -3,6 +3,7 @@ import { Star } from "lucide-react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
+import { Auth } from "@/components/auth";
 
 interface Hero3Props {
   heading?: string;
@@ -104,16 +105,12 @@ const Hero3 = ({
             </div>
           </div>
           <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
-            {buttons.primary && (
+            {/* {buttons.primary && (
               <Button asChild className="w-full sm:w-auto">
                 <a href={buttons.primary.url}>{buttons.primary.text}</a>
               </Button>
-            )}
-            {buttons.secondary && (
-              <Button asChild variant="outline">
-                <a href={buttons.secondary.url}>{buttons.secondary.text}</a>
-              </Button>
-            )}
+            )} */}
+            <Auth />
           </div>
         </div>
         <div className="flex">
