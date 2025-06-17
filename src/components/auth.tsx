@@ -1,5 +1,6 @@
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignInButton, SignedOut, SignedIn } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const Auth = () => {
   return (
@@ -10,7 +11,9 @@ export const Auth = () => {
         </SignInButton>
       </SignedOut>
       <SignedIn>
-        <Button size="lg">おかえりなさい！</Button>
+        <Button size="lg" asChild>
+          <Link href="/dashboard">ダッシュボードに戻る</Link>
+        </Button>
       </SignedIn>
     </>
   );
