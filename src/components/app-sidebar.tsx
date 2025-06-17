@@ -2,19 +2,13 @@
 
 import * as React from "react";
 import { History, WandSparkles, CreditCard } from "lucide-react";
-
-import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
 import { UserButton } from "@clerk/nextjs";
-import { NavUser } from "@/components/nav-user";
-import { TeamSwitcher } from "@/components/team-switcher";
 
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -27,7 +21,7 @@ import { Logo } from "@/components/logo";
 // Menu items.
 const items = [
   {
-    title: "ジェネレータ一覧",
+    title: "コンテンツジェネラータを探す",
     url: "/dashboard",
     icon: WandSparkles,
   },

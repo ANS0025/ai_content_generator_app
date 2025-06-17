@@ -1,10 +1,10 @@
-import React from "react";
+import GeneratorList from "@/components/generator-list";
 
 const Dashboard = () => {
   return (
-    <>
-      <h1>Dashboard</h1>
-    </>
+    <section className="px-10">
+      <GeneratorList />
+    </section>
   );
 };
 
