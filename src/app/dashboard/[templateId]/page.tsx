@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Loader } from "lucide-react";
 import { Editor } from "@/components/editor";
 import { useState } from "react";
-// import { chatSession } from "@/lib/chat-ai";
+import { chat } from "@/lib/ai-provider";
 import axios from "axios";
 
 interface TemplateIdProps {
@@ -39,15 +39,8 @@ export default function GeneratorPage({ params }: { params: TemplateIdProps }) {
       const selectedPrompt = selectedTemplate?.prompt;
       const finalAIPrompt = JSON.stringify(dataSet) + ", " + selectedPrompt;
 
-      const result = await chatSession.sendMessage(finalAIPrompt);
-      setAiOutput(result.response.text());
-
-      const response = await axios.post("/api/", {
-        title: dataSet.title,
-        description: result.response.text(),
-        templateUsed: selectedTemplate?.title,
-      });
-      console.log("response:", response);
+      const result = await chat.sendMessage({ message: finalAIPrompt });
+      setAiOutput(result.text || "Error generating content");
     } catch (error) {
       console.error("Error generating AI content:", error);
     } finally {
