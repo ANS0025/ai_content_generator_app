@@ -21,7 +21,6 @@ A modern AI-powered content generation application built with Next.js 15 and Gem
 - **AI Integration**: Google Gemini AI via @google/genai
 - **Authentication**: Clerk
 - **Editor**: React Quill
-- **Charts**: Recharts
 - **Icons**: Lucide React, Tabler Icons
 
 ## Getting Started
