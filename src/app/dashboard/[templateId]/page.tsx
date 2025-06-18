@@ -6,10 +6,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowLeft, Loader } from "lucide-react";
-import Link from "next/link";
+import { Loader } from "lucide-react";
 import { Editor } from "@/components/editor";
 import { useState } from "react";
+// import { chatSession } from "@/lib/chat-ai";
+import axios from "axios";
 
 interface TemplateIdProps {
   templateId: string;
@@ -27,35 +28,46 @@ export default function GeneratorPage({ params }: { params: TemplateIdProps }) {
     return <div>Template not found</div>;
   }
 
-  const onSubmit = async (formData: FormData) => {
+  const generateAIContent = async (formData: FormData) => {
     setIsLoading(true);
     try {
-      // Handle form submission here
-      // Add your API call logic
-      setIsLoading(false);
+      const dataSet = {
+        title: formData.get("title"),
+        description: formData.get("description"),
+      };
+
+      const selectedPrompt = selectedTemplate?.prompt;
+      const finalAIPrompt = JSON.stringify(dataSet) + ", " + selectedPrompt;
+
+      const result = await chatSession.sendMessage(finalAIPrompt);
+      setAiOutput(result.response.text());
+
+      const response = await axios.post("/api/", {
+        title: dataSet.title,
+        description: result.response.text(),
+        templateUsed: selectedTemplate?.title,
+      });
+      console.log("response:", response);
     } catch (error) {
-      console.error("Error generating content:", error);
+      console.error("Error generating AI content:", error);
+    } finally {
       setIsLoading(false);
     }
   };
 
+  const onSubmit = async (formData: FormData) => {
+    generateAIContent(formData);
+  };
+
   return (
-    <div className="container mx-auto px-4 py-8 max-w-7xl">
-      <div className="mb-8 flex items-center gap-4">
-        <Link href="/">
-          <Button variant="ghost" size="sm">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            戻る
-          </Button>
-        </Link>
-        <div className="flex items-center gap-3">
-          <div>
-            <h1 className="text-2xl font-semibold">{selectedTemplate.title}</h1>
-            <p className="text-muted-foreground text-sm">
-              {selectedTemplate.description}
-            </p>
-          </div>
-        </div>
+    <div className="container mx-auto px-10">
+      <div className="mb-8 flex flex-col gap-2">
+        <h1 className="text-2xl font-semibold">
+          {selectedTemplate.title}ジェネレータ
+        </h1>
+        <p className="text-muted-foreground text-sm">
+          {selectedTemplate.description}
+        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-[calc(100vh-200px)]">
@@ -97,7 +109,7 @@ export default function GeneratorPage({ params }: { params: TemplateIdProps }) {
                   {isLoading ? (
                     <Loader className="animate-spin mr-2 h-4 w-4" />
                   ) : null}
-                  {isLoading ? "生成中..." : "Generate Content"}
+                  {isLoading ? "生成中..." : "コンテンツを生成"}
                 </Button>
               </form>
             </CardContent>

@@ -9,16 +9,16 @@ export const generatorTemplates = [
     icon: FileText,
     category: "blog",
     prompt:
-      "Give me blog post on given topic & outline in Rich Text Editor format.",
+      "与えられたトピックとアウトラインに基づいて、リッチテキストエディタ形式でブログ記事を生成してください。",
     form: [
       {
-        label: "Enter your blog post title",
+        label: "ブログ記事のタイトルを入力してください",
         field: "input",
         name: "title",
         required: true,
       },
       {
-        label: "Enter your blog post outline",
+        label: "ブログ記事のアウトラインを入力してください",
         field: "textarea",
         name: "outline",
         required: true,
@@ -33,16 +33,16 @@ export const generatorTemplates = [
     icon: Youtube,
     category: "video",
     prompt:
-      "Give me youtube video idea on given video niche & outline topic and give me result in Rich Text Editor format.",
+      "指定された動画ジャンルとアウトラインに基づいて、YouTube動画のアイデアをリッチテキストエディタ形式で提案してください。",
     form: [
       {
-        label: "Youtube Video Description Title",
+        label: "YouTube動画のタイトルを入力してください",
         field: "input",
         name: "title",
         required: true,
       },
       {
-        label: "Enter Youtube Video Description Outline",
+        label: "YouTube動画のアウトラインを入力してください",
         field: "textarea",
         name: "outline",
         required: true,
@@ -57,16 +57,16 @@ export const generatorTemplates = [
     icon: Youtube,
     category: "video",
     prompt:
-      "Create a compelling Instagram caption for the following image: {image_url}. The caption should be engaging, informative, and relevant to the image content. Include relevant hashtags to enhance visibility and engagement. The caption should be optimized for Instagram and be easily understood by both humans and machines.",
+      "以下の画像に対する魅力的なInstagramのキャプションを作成してください：{image_url}。キャプションは魅力的で、情報価値があり、画像の内容に関連したものにしてください。視認性とエンゲージメントを高めるための関連ハッシュタグを含めてください。キャプションはInstagram向けに最適化され、人間と機械の両方が理解しやすいものにしてください。",
     form: [
       {
-        label: "Youtube Video Description Title",
+        label: "YouTube動画のタイトルを入力してください",
         field: "input",
         name: "title",
         required: true,
       },
       {
-        label: "Enter Youtube Video Description Outline",
+        label: "YouTube動画の説明文のアウトラインを入力してください",
         field: "textarea",
         name: "outline",
         required: true,
@@ -81,16 +81,16 @@ export const generatorTemplates = [
     icon: Linkedin,
     category: "professional",
     prompt:
-      "Give me 280 characters of tweet example on given niche & outline topic",
+      "指定されたジャンルとアウトラインに基づいて、280文字のツイート例を提供してください。",
     form: [
       {
-        label: "Enter your post niche",
+        label: "投稿のジャンルを入力してください",
         field: "input",
         name: "niche",
         required: true,
       },
       {
-        label: "Enter post outline",
+        label: "投稿のアウトラインを入力してください",
         field: "textarea",
         name: "outline",
       },
