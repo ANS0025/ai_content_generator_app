@@ -95,7 +95,7 @@ src/
 
 The application supports several content generation templates:
 
-### Blog Posts (ブログ記事)
+### Blog Posts
 
 - SEO-optimized blog post generation
 - Automatic title and keyword suggestions
