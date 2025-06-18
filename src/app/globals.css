@@ -120,3 +120,63 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* React Quill New Custom Styles */
+.ql-editor {
+  min-height: 400px !important;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ql-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ql-editor.ql-blank::before {
+  color: #9ca3af;
+  font-style: normal;
+}
+
+.ql-toolbar {
+  border-top: 1px solid #e5e7eb;
+  border-left: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.ql-container.ql-snow {
+  border-left: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  flex: 1;
+}
+
+/* Make the quill editor fill the available space */
+.quill-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.quill-container .ql-container {
+  flex: 1;
+}
+
+/* Additional styles for react-quill-new */
+.ql-snow .ql-tooltip {
+  z-index: 1000;
+}
+
+.ql-snow .ql-picker {
+  color: #444;
+}
+
+.ql-snow .ql-stroke {
+  stroke: #444;
+}
+
+.ql-snow .ql-fill {
+  fill: #444;
+}
