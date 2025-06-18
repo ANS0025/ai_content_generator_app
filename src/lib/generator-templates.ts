@@ -21,7 +21,6 @@ export const generatorTemplates = [
         label: "ブログ記事のアウトラインを入力してください",
         field: "textarea",
         name: "outline",
-        required: true,
       },
     ],
   },
