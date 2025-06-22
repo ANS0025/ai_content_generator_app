@@ -41,6 +41,13 @@ export default function GeneratorPage({ params }: { params: TemplateIdProps }) {
 
       const result = await chat.sendMessage({ message: finalAIPrompt });
       setAiOutput(result.text || "Error generating content");
+      // データを保存する
+      const response = await axios.post("/api/", {
+        title: dataSet.title,
+        description: result.text,
+        templateUsed: selectedTemplate?.title,
+      });
+      console.log("response: " + response);
     } catch (error) {
       console.error("Error generating AI content:", error);
     } finally {
