@@ -60,7 +60,7 @@ export default function GeneratorPage({ params }: { params: TemplateIdProps }) {
   };
 
   return (
-    <div className="container mx-auto px-10">
+    <div className="container mx-auto px-10 pt-4">
       <div className="mb-8 flex flex-col gap-2">
         <h1 className="text-2xl font-semibold">
           {selectedTemplate.title}ジェネレータ

@@ -26,7 +26,7 @@ const History = async () => {
   });
 
   return (
-    <div className="container mx-auto px-10">
+    <div className="container mx-auto px-10 pt-4">
       <div className="mb-8 flex flex-col gap-2">
         <h1 className="text-2xl font-semibold">生成履歴</h1>
         <p className="text-muted-foreground text-sm">
@@ -78,7 +78,7 @@ const History = async () => {
                       </div>
                     </TableCell>
                     <TableCell className="text-right text-sm">
-                      {format(history.createdAt, "yyyy/MM/dd HH:mm")}
+                      {format(history.createdAt, "yyyy/mm/dd HH:mm")}
                     </TableCell>
                   </TableRow>
                 ))}
