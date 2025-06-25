@@ -22,3 +22,23 @@ model AIOutput {
   templateUsed String
   createdAt DateTime @default(now())
 }
+
+model Purchase {
+  id String @id @default(uuid())
+  userId String
+  credit Float
+  createdAt DateTime @default(now())
+}
+
+model StripeCustomer {
+  id String @id @default(uuid())
+  userId String @unique
+  stripeCustomerId String @unique
+  createdAt DateTime @default(now())
+}
+
+model User {
+  id String @id @default(uuid())
+  email String @unique
+  totalCredit Float @default(10000)
+}
