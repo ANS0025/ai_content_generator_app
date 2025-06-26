@@ -39,6 +39,6 @@ model StripeCustomer {
 
 model User {
   id String @id @default(uuid())
-  email String @unique
+  userId String @unique
   totalCredit Float @default(10000)
 }

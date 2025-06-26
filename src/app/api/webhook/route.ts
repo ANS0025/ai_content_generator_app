@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: "2024-06-20",
+  apiVersion: "2025-05-28.basil",
 });
 
 export async function POST(req: Request) {
@@ -14,6 +14,7 @@ export async function POST(req: Request) {
   let event;
 
   try {
+    console.log(stripe);
     event = stripe.webhooks.constructEvent(
       body,
       signature!,

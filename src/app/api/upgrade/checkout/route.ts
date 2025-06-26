@@ -9,7 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 
 export async function POST(req: Request) {
   try {
-    const { userId } = auth();
+    const { userId } = await auth();
     const user = await currentUser();
     if (!userId) {
       return new NextResponse("User not Authenticated", { status: 401 });
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
             name: "10,000 AI Credit",
             description: "Unlock 10,000 AI Credits",
           },
-          unit_amount: 10000,
+          unit_amount: 600,
         },
       },
     ];
@@ -65,7 +65,7 @@ export async function POST(req: Request) {
       success_url: `${process.env.NEXT_PUBLIC_APP_URL}/dashboard`,
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/`,
       metadata: {
-        purchaseId: purchase.id,
+        userId: userId,
       },
     });
 
