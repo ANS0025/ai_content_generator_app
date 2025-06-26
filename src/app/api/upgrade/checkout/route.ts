@@ -24,7 +24,7 @@ export async function POST(req: Request) {
             name: "10,000 AI Credit",
             description: "Unlock 10,000 AI Credits",
           },
-          unit_amount: 1000,
+          unit_amount: 10000,
         },
       },
     ];
